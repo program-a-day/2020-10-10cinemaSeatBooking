@@ -11,7 +11,8 @@ let selectedMoviePrice = parseInt(selectedMovieInput.value)
 
 // Program initialize from localStorage
 let invitation = JSON.parse(localStorage.getItem('invitation'))
-seats.forEach((x, i) => /selected/.test(invitation[i]) && x.classList.add('selected'))
+invitation &&
+    seats.forEach((x, i) => /selected/.test(invitation[i]) && x.classList.add('selected'))
 updateMessag()
 
 // Events
@@ -21,6 +22,12 @@ seatsWrapper.addEventListener('click', e => {
         updateMessag()
         localStorage.setItem('invitation', JSON.stringify(seats.map(x => x.className)))
     }
+})
+seatsWrapper.addEventListener('mouseover', e => {
+    if (e.target.classList.contains('seat') && !e.target.classList.contains('occupied')) {
+        e.target.style.transform = 'scale(1.2)'
+    }
+    e.target.onmouseout = () => e.target.style.transform = 'scale(1)'
 })
 selectedMovieInput.oninput = updateMessag
 
