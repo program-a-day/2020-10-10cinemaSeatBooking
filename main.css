@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #242333;
+    color: #ffffff;
+    font: 1.2rem sans-serif;
+}
+.wrapper {
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper > * {
+    margin-bottom: 2rem;
+}
+.seat {
+    width: 15px;
+    height: 15px;
+    background: #445566;
+    display: inline-block;
+    border-radius: 100%  100%  0 0 ;
+}
+.seat.selected {
+    background: #6FEAF6;
+}
+.seat.occupied {
+    background: #ffffff;
+}
+.legend {
+    width: 400px;
+    background: #181833;
+    border-radius: 5px;
+    padding: 0.2em;
+    text-align: center;
+}
+.legend > span ~ span {
+    margin-left: 1.3em;
+}
+.screen {
+    width: 200px;
+    border: 15px solid transparent;
+    border-top: 45px solid white;
+    filter: drop-shadow(0 3px 7px);
+    margin-top: 3rem;
+}
+.seats {
+    display: flex;
+}
+.left,.right {
+    width: 36px;
+}
+.center {
+    width: 80px;
+    margin: 0 1rem;
+}
+.message>output {
+    color:#6FEAF6;
+}
